@@ -1,0 +1,54 @@
+@import './colors.scss';
+@import './typography.scss';
+
+.header-main {
+    font-size: $font-size-xxl;  
+    font-weight: $font-weight-extra-bold;
+    color: $primary-color;  
+    margin: 0;
+    padding: 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    border-radius: 10px;
+    text-align: center;
+  
+    &.active {
+      background-color: $badge-active-bg-color; 
+      color: $white-color;  
+    }
+  
+    &.inactive {
+      background-color: $badge-inactive-bg-color;   
+      color: $badge-text-color;  
+    }
+  }  
+  .Custom-button {
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+  
+    &.primary {
+      background-color: $primary-color;
+      color: $white-color ;
+    }
+  
+    &.secondary {
+      background-color: $secondary-color;
+      color:  $white-color;
+    }
+  }
+
+  .section-description{
+    font-size: $font-size-base;  
+    line-height: 22px; 
+    color:$dark-gray-color;  
+    font-weight: $font-weight-bold;  
+    text-align: justify; 
+  }
+  
