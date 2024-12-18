@@ -6,6 +6,7 @@ import { BannerSlidesService } from '../../../../../core/services/banner/banner-
 import { BannerSlide } from '../../../../../core/models/slide-banner.Model';
 import { log } from 'node:console';
 import { TopNavDecorationComponent } from "./components/top-nav-decoration/top-nav-decoration.component";
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-banner',
@@ -47,6 +48,7 @@ export class BannerComponent {
   selectedTheme(slide: BannerSlide): void {
     this.selectedSlide = slide;
       document.documentElement.style.setProperty('--theme-color', `#${slide.colorCode}`);
+      this.animateSlide()
     console.log('Selected Slide:', slide);
   }
   redirectToUrl(url: string): void {
@@ -54,4 +56,31 @@ export class BannerComponent {
       window.open(url, '_blank');
     }
   }
+  animateSlide(){
+    gsap.from('.banner__title', {
+      duration: 0.4,
+      x: 30,
+      y:30,
+      onComplete: () => {
+        gsap.set('.banner__title', { x: 0,y:0 });
+      }
+    });
+    gsap.from('.banner__img', {
+      duration: 0.4,
+      x: -50,
+      y:50,
+      onComplete: () => {
+        gsap.set('.banner__img', { x: 0,y:0 });
+      }
+    });
+    gsap.from('.banner__nav-decoration', {
+      duration: 0.4,
+      x: -30,
+      y:30,
+      onComplete: () => {
+        gsap.set('.banner__nav-decoration', { x: 0,y:0 });
+      }
+    });
+  }
+  
 }

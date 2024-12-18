@@ -53,4 +53,17 @@
     font-weight: $font-weight-bold;  
     text-align: justify; 
   }
+  *::-webkit-scrollbar:horizontal {
+    height: 6px;
+  }
   
+  *::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+     background: var(--theme-color);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 80px;
+  }

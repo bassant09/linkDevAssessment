@@ -6,7 +6,7 @@
             <p >{{selectedSlide?.category}}</p>
 
         </div>
-        <h1 class="banner__title header-main position-relative z-3">{{selectedSlide?.title}}
+        <h1 class="banner__title header-main position-relative z-3 ">{{selectedSlide?.title}}
             <app-header-decoration   class="banner__header-decoration"></app-header-decoration>
 
         </h1>
@@ -19,13 +19,21 @@
                     <i class="bi bi-play-fill p-0 m-0" style="color: #fff; font-size: 1.3rem;"></i>
                  </button>
                  <span class="play-text">Play Demo</span>
-
+                
                </div>
        </div>
         <div class="banner_themes">
-            @for (item of slidesData; track item.id) {
+            @for (item of slidesData; track item.id; ) {
 
-            <app-theming-color [themeColor]="item.colorCode"></app-theming-color>
+            <app-theming-color [themeColor]="item.colorCode" (click)="selectedTheme(item)"></app-theming-color>
+            <!-- dotted line -->
+             @if ($index!=slidesData.length-1) {
+            @for (item of [1,2,3,4,5,6]; track $index){
+                <div class="dotted-line" >
+
+                </div>
+            }
+        }
             }
         </div>
        

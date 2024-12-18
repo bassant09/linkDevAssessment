@@ -70,14 +70,14 @@
   .banner_themes{
     display: flex;
     align-items: center;
-    gap: 1.625rem;
+    gap: 1.2rem;
     margin-top:2.563rem ;
   }
   .banner__badge {
     p{
         font-size: $font-size-lg;
         font-weight:$font-weight-bold ;
-        color:$secondary-color;
+        color:var(--theme-color);
         text-transform: uppercase;
     }
   }
@@ -87,4 +87,14 @@
    right: 0;
    z-index: -1;
    pointer-events: none; 
+  }
+  .banner__title{
+    height: 180px
+    ;
+  }
+  .dotted-line {
+   width: 3px;
+   height: 3px;
+   border-radius: 50%;
+   background-color: #000;
   }
