@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-custom-button',
@@ -8,5 +8,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './custom-button.component.scss'
 })
 export class CustomButtonComponent {
+  @Input() btnTitle:string='View All News'
 @Output() ButtonClickedEvent= new EventEmitter<boolean>(false)
 }
