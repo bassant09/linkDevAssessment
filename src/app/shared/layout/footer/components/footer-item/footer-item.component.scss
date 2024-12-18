@@ -1,0 +1,23 @@
+@import '../../../../../../styles/colors';
+@import '../../../../../../styles/typography';
+.footer__item ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 1.5rem
+  }
+  
+  .footer__item ul li {
+    margin-bottom: 10px;
+    
+  }
+  
+  .footer__item ul li a {
+    font-size: $font-size-base ;
+    color: $dark-gray-color;
+    text-decoration: none;
+  }
+  .footer__item  h5 {
+    
+    font-weight: $font-weight-extra-bold;
+    font-size: 21px;
+  }

@@ -1,0 +1,51 @@
+<!-- <footer class="footer__body p-5 w-100 bg-primary">
+  <div class="footer__column">
+    <img src="assets/images/Logo.png" alt="Logo" class="me-auto">
+    <p class="footer__description text-wrap">We make technology produce productive, adaptable and sustainable business experiences.</p>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="footer__column" *ngFor="let item of [1,2,3,4]">
+        <h5 class="">Company</h5>
+        <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+      </div>
+  
+  </div>
+  <div class="footer__column d-flex flex-column justify-content-center">
+    <img src="assets/images/Logo.png" alt="Logo" class="">
+    <p class="footer__description text-wrap">We make technology produce productive, adaptable and sustainable business experiences.</p>
+  </div>
+</footer> -->
+<footer >
+  <div class="footer__body py-5 w-100 container ">
+
+ 
+    <div >
+      <img src="assets/images/Logo.png" alt="Logo" class="me-auto">
+      <p class="footer__description text-wrap mt-3">We make technology produce productive, adaptable and sustainable business experiences.</p>
+    </div>
+    <div class="row m-0 p-0 ">
+        <div class="col-4 " *ngFor="let item of footerItems">
+          <app-footer-item [footerItem]="item"></app-footer-item>
+            
+        </div>
+       
+    </div>
+    <!-- Discover our app -->
+    <div class=" footer__app-downloads ">
+        <div class="d-flex gap-4 align-items-center" >
+          <app-social-media-badge *ngFor="let item of socialMediaItems" [socialMediaItem]="item" ></app-social-media-badge>
+        </div>
+        <h3 class="p-0 mx-0 ">Discover our app</h3>
+        <div class="d-flex  gap-2 " style="margin-top: 1rem;">
+           <img src="assets/images/Google Play.svg" alt="">
+           <img src="assets/images/Play Store.svg" alt="">
+        </div>
+      </div>
+    </div>
+      <p class="text-center mb-5">All rights reservedinkdevelopment.com</p>
+  </footer>

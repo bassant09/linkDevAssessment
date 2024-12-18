@@ -1,5 +1,8 @@
 @import '../src/styles/colors.scss';
 @import '../src/styles/global-styles.scss';
+@import '../src/styles/typography';
+
 body{
-      font-family: "Volkhov", serif;
+      font-family: "Poppins", sans-serif;
+      background-color: $white-color;
 }

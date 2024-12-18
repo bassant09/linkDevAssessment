@@ -1,0 +1,6 @@
+<div class="bg-white bage__body">
+        <a *ngIf="socialMediaItem.link" [href]="socialMediaItem.link" target="_blank" rel="noopener noreferrer">
+            <span [innerHTML]="socialMediaItem.svg"></span>
+          </a>
+          <span *ngIf="!socialMediaItem.link" [innerHTML]="socialMediaItem.svg"></span>
+</div>
