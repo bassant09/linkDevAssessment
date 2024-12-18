@@ -1,0 +1,8 @@
+<div class="top-news-section">
+    <h3 class="top-news-section__media ">Media</h3>
+<h2 class="top-news-section__header header-main mt-3">Top News</h2>
+<div class="top-news-section__category">
+<span class="badge inactive" [ngClass]="{'active': selectedCategoryId === item?.id, 'inactive': selectedCategoryId !== item?.id}"  *ngFor="let item of categoryData" (click)="setSelectedCategory(item.id)">{{item?.name}}</span>
+
+</div>
+</div>

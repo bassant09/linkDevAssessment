@@ -5,6 +5,7 @@
     font-size: $font-size-xxl;  
     font-weight: $font-weight-extra-bold;
     color: $primary-color;  
+    font-family: "Volkhov", serif;
     margin: 0;
     padding: 0;
   }
@@ -15,6 +16,7 @@
     font-weight: $font-weight-regular;
     border-radius: 10px;
     text-align: center;
+    min-width: 110px;
   
     &.active {
       background-color: $badge-active-bg-color; 
