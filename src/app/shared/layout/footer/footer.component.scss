@@ -1,38 +1,36 @@
-@import '../../../../styles/typography';
-@import '../../../../styles/colors';
+@import "../../../../styles/typography";
+@import "../../../../styles/colors";
 
-.footer__body{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.footer__body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-.footer__description{
-max-width: 307px;
-font-size: $font-size-sm;
+.footer__description {
+  max-width: 307px;
+  font-size: $font-size-sm;
 }
 .footer__column {
-    flex: 1; 
-    min-width: 180px; 
-  }
-  
+  flex: 1;
+  min-width: 180px;
+}
+
 .footer__body h5 {
-    
-    font-weight: $font-weight-extra-bold;
-  }
- 
-  p{
-    color: $dark-gray-color;
-  }
-  .footer__app-downloads{
-    display: flex;
+  font-weight: $font-weight-extra-bold;
+}
+
+p {
+  color: $dark-gray-color;
+}
+.footer__app-downloads {
+  display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
   h3 {
     font-size: $font-size-lg;
     color: $dark-gray-color;
-    
-    margin-top:1.625rem ;
 
+    margin-top: 1.625rem;
   }
-  }
+}
