@@ -27,8 +27,21 @@
     background: none;
     border: 1px solid $dark-gray-color;
 }
+
 .navbar__actions {
   display: flex;
   gap: 35px; 
   align-items: center;
+}
+
+.navbar__burger-btn {
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__offcanvas-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

@@ -40,7 +40,7 @@ export class LatestNewsComponent {
         this.allNews = data?.News.filter(
           (item) => item.showOnHomepage === 'yes'
         );
-        debugger
+        
         this.displayedNews = this.allNews.slice(0, 6);
         console.log('News data fetched successfully:', this.allNews);
       },
