@@ -29,14 +29,14 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <img src="assets/images/Logo.png" alt="Logo" class="navbar__logo me-auto">
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button #btnClose type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div class="navbar__offcanvas-items">
-      <a href="#" class="navbar__item">Home</a>
-      <a href="#" class="navbar__item">About</a>
-      <a href="#" class="navbar__item">Contact</a>
-      <a href="#" class="navbar__item">More</a>
+      <a href="#" class="navbar__item" (click)="btnClose.click()">Home</a>
+      <a href="#" class="navbar__item" (click)="btnClose.click()">About</a>
+      <a href="#" class="navbar__item" (click)="btnClose.click()">Contact</a>
+      <a href="#" class="navbar__item" (click)="btnClose.click()">More</a>
     </div>
     <hr />
     <div class="navbar__actions">
