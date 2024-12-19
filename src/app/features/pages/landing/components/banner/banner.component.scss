@@ -98,9 +98,6 @@ p {
   pointer-events: none;
 }
 
-.banner__title {
-  height: 180px;
-}
 
 .dotted-line {
   width: 3px;
@@ -119,7 +116,7 @@ p {
   }
 
   .banner__title {
-    height: auto;
+    font-size:3.6875rem ;
   }
 }
 
