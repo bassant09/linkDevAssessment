@@ -25,9 +25,6 @@
 
                 <!-- Empty State -->
                 <app-empty-state *ngIf="!isLoading && !isError && displayedNews.length === 0"></app-empty-state>
-
-                <!-- Error State -->
-                <app-error-state *ngIf="isError && !isLoading"></app-error-state>
             </ng-template>
         </div>
 

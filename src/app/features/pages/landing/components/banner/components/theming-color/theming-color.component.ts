@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component,  Input} from '@angular/core';
+import { ThemeService } from '../../../../../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-theming-color',
@@ -11,13 +11,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ThemingColorComponent {
 @Input() themeColor:string='F215B6'
-constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+constructor(private _themeService:ThemeService) {}
 
-getThemeColor(): string {
-  if (isPlatformBrowser(this.platformId)) {
-    const root = document.documentElement; 
-    return getComputedStyle(root).getPropertyValue('--theme-color').trim();
-  }
-  return '#000000';
+getThemeColor(): string |null{
+  return this._themeService.getThemeColor()
 }
 }

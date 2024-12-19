@@ -7,6 +7,7 @@ import { BannerSlide } from '../../../../../core/models/slide-banner.Model';
 import { log } from 'node:console';
 import { TopNavDecorationComponent } from "./components/top-nav-decoration/top-nav-decoration.component";
 import { gsap } from 'gsap';
+import { ThemeService } from '../../../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-banner',
@@ -20,7 +21,7 @@ export class BannerComponent {
   isLoading: boolean = false;
   slidesData:BannerSlide[]=[]
   selectedSlide!: BannerSlide 
-  constructor(private _bannerSlides:BannerSlidesService){}
+  constructor(private _bannerSlides:BannerSlidesService,private _themeService:ThemeService){}
   ngOnInit(){
     this.fetchBannerSlides()
   }
@@ -47,7 +48,8 @@ export class BannerComponent {
   }
   selectedTheme(slide: BannerSlide): void {
     this.selectedSlide = slide;
-      document.documentElement.style.setProperty('--theme-color', `#${slide.colorCode}`);
+    this._themeService.setThemeColor(slide.colorCode)
+      //document.documentElement.style.setProperty('--theme-color', `#${slide.colorCode}`);
       this.animateSlide()
     console.log('Selected Slide:', slide);
   }
