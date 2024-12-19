@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { NewsCardComponentComponent } from './components/news-card-component/news-card-component.component';
 import { CommonModule } from '@angular/common';
 import { NewsHeaderComponent } from "./components/news-header/news-header.component";
@@ -22,43 +22,47 @@ import { LoadingStateComponent } from '../../../../../shared/states/loading-stat
 export class LatestNewsComponent {
   constructor(private _newsService: LatestNewsService) { }
   news: News[] = [];
-  isError: boolean = false;
   IsNewsLoading: boolean = false;
   IsCategoriesLoading: boolean = false;
+  IsNewsError: boolean = false;
+  IsCategoriesError: boolean = false;
     allNews: News[] = [];
   displayedNews: News[] = [];
   categoryData:Category[]=[]
   showAll: boolean = false
   ngOnInit(): void {
-    this.fetchLatestNews();
     this.fetchCategorys()
   }
   get isLoading(): boolean {
-    return this.IsNewsLoading || this.IsCategoriesLoading;
+    return  this.IsCategoriesLoading ||this.IsNewsLoading;
+  }
+  get isError(): boolean {
+    
+    return this.IsCategoriesError || this.IsNewsError;
   }
   fetchLatestNews() {
-    if (this.isLoading) return;
-    this.isError = false;
+    this.IsNewsError = false;
     this.IsNewsLoading = true;
     this._newsService.getLatestNews().subscribe({
       next: (data) => {
         this.IsNewsLoading = false;
-        this.allNews = data?.News.filter(
-          (item) => item.showOnHomepage === 'yes'
-        );
+        this.allNews = data?.News.filter((item) => item.showOnHomepage === 'yes').map((news) => {
+          const category = this.categoryData.find((cat) => parseInt(cat.id)  === parseInt(news.categoryID) );
+          return { ...news, categoryName: category?.name || 'Unknown' };
+        });
         
         this.displayedNews = this.allNews.slice(0, 6);
         console.log('News data fetched successfully:', this.allNews);
       },
       error: (error) => {
-        this.isError = true;
+        this.IsNewsError = true;
         this.IsNewsLoading = false;
       },
     });
   }
   fetchCategorys() {
     this.IsCategoriesLoading = true;
-    this.isError = false;
+    this.IsCategoriesError = false;
     this._newsService.getCategorys().subscribe({
       next: (data) => {
         const allNewsCategory = { id: '0', name: 'All News' };
@@ -67,9 +71,11 @@ export class LatestNewsComponent {
       this.IsCategoriesLoading = false;
 
         console.log('News data fetched successfully:', this.categoryData);
+        this.fetchLatestNews();
+
       },
       error: (error) => {
-        this.isError = true;
+        this.IsCategoriesError = true;
         this.IsCategoriesLoading = false;
       },
     });
