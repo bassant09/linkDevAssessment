@@ -38,6 +38,12 @@
   font-size: $font-size-lg;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 p {
