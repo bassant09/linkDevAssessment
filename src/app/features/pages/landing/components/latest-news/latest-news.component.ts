@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NewsCardComponentComponent } from './components/news-card-component/news-card-component.component';
 import { CommonModule } from '@angular/common';
-import { NewsHeaderComponent } from "./components/news-header/news-header.component";
-import { CustomButtonComponent } from "../../../../../shared/components/custom-button/custom-button.component";
+import { NewsHeaderComponent } from './components/news-header/news-header.component';
+import { CustomButtonComponent } from '../../../../../shared/components/custom-button/custom-button.component';
 import { LatestNewsService } from '../../../../../core/services/latest-news/latest-news.service';
 import { News, NewsResponse } from '../../../../../core/models/news.Model';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,89 +11,97 @@ import { Category } from '../../../../../core/models/Category.Model';
 import { EmptyStateComponent } from '../../../../../shared/states/empty-state/empty-state.component';
 import { ErrorStateComponent } from '../../../../../shared/states/error-state/error-state.component';
 import { LoadingStateComponent } from '../../../../../shared/states/loading-state/loading-state.component';
+import { catchError, forkJoin, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-latest-news',
   standalone: true,
-  imports: [CommonModule, NewsCardComponentComponent, NewsHeaderComponent, CustomButtonComponent,EmptyStateComponent,ErrorStateComponent,LoadingStateComponent],
+  imports: [
+    CommonModule,
+    NewsCardComponentComponent,
+    NewsHeaderComponent,
+    CustomButtonComponent,
+    EmptyStateComponent,
+    ErrorStateComponent,
+    LoadingStateComponent,
+  ],
   templateUrl: './latest-news.component.html',
-  styleUrl: './latest-news.component.scss'
+  styleUrl: './latest-news.component.scss',
 })
 export class LatestNewsComponent {
-  constructor(private _newsService: LatestNewsService) { }
+  constructor(private _newsService: LatestNewsService) {}
   news: News[] = [];
-  IsNewsLoading: boolean = false;
-  IsCategoriesLoading: boolean = false;
-  IsNewsError: boolean = false;
-  IsCategoriesError: boolean = false;
-    allNews: News[] = [];
+  isLoading: boolean = false;
+  isError: boolean = false;
+  allNews: News[] = [];
   displayedNews: News[] = [];
-  categoryData:Category[]=[]
-  showAll: boolean = false
+  categoryData: Category[] = [];
+  showAll: boolean = false;
+
   ngOnInit(): void {
-    this.fetchCategorys()
+    this.fetchData();
   }
-  get isLoading(): boolean {
-    return  this.IsCategoriesLoading ||this.IsNewsLoading;
-  }
-  get isError(): boolean {
-    
-    return this.IsCategoriesError || this.IsNewsError;
-  }
-  fetchLatestNews() {
-    this.IsNewsError = false;
-    this.IsNewsLoading = true;
-    this._newsService.getLatestNews().subscribe({
-      next: (data) => {
-        this.IsNewsLoading = false;
-        this.allNews = data?.News.filter((item) => item.showOnHomepage === 'yes').map((news) => {
-          const category = this.categoryData.find((cat) => parseInt(cat.id)  === parseInt(news.categoryID) );
-          return { ...news, categoryName: category?.name || 'Unknown' };
-        });
-        
-        this.displayedNews = this.allNews.slice(0, 6);
-        console.log('News data fetched successfully:', this.allNews);
+
+  fetchData() {
+    this.isLoading = true;
+    this.isError = false;
+    forkJoin([this.fetchCategories(), this.fetchLatestNews()]).subscribe({
+      next: (res) => {
+        this.isLoading = false;
       },
-      error: (error) => {
-        this.IsNewsError = true;
-        this.IsNewsLoading = false;
-      },
+      error: (err) => {
+        this.isLoading = false;
+        this.isError = true;
+      }
     });
   }
-  fetchCategorys() {
-    this.IsCategoriesLoading = true;
-    this.IsCategoriesError = false;
-    this._newsService.getCategorys().subscribe({
-      next: (data) => {
+
+  fetchCategories() {
+    return this._newsService.getCategories().pipe(
+      tap((data) => {
         const allNewsCategory = { id: '0', name: 'All News' };
 
-      this.categoryData=[allNewsCategory, ...data?.newsCategory];
-      this.IsCategoriesLoading = false;
+        this.categoryData = [allNewsCategory, ...data?.newsCategory];
 
-        console.log('News data fetched successfully:', this.categoryData);
-        this.fetchLatestNews();
-
-      },
-      error: (error) => {
-        this.IsCategoriesError = true;
-        this.IsCategoriesLoading = false;
-      },
-    });
+        console.log('Categories fetched successfully:', this.categoryData);
+      })
+    );
   }
+
+  fetchLatestNews() {
+    return this._newsService.getLatestNews().pipe(
+      tap((data) => {
+        this.allNews = data?.News.filter(
+          (item) => item.showOnHomepage === 'yes'
+        ).map((news) => {
+          const category = this.categoryData.find(
+            (cat) => parseInt(cat.id) === parseInt(news.categoryID)
+          );
+          return { ...news, categoryName: category?.name || 'Unknown' };
+        });
+
+        this.displayedNews = this.allNews.slice(0, 6);
+        console.log('News fetched successfully:', this.allNews);
+      })
+    );
+  }
+
   showAllNews() {
-    if (this.showAll) return
-    this.displayedNews = this.allNews
-    this.showAll = true
+    if (this.showAll) return;
+    this.displayedNews = this.allNews;
+    this.showAll = true;
   }
-  filterByCategory(id:string){
-    if(id=='0'){ this.displayedNews = this.allNews; return}
-        this.displayedNews=this.allNews.filter(item=>  item.categoryID==id)
-        console.log(this.displayedNews);
-        
+
+  filterByCategory(id: string) {
+    if (id == '0') {
+      this.displayedNews = this.allNews;
+      return;
+    }
+    this.displayedNews = this.allNews.filter((item) => item.categoryID == id);
+    console.log(this.displayedNews);
   }
+
   trackByNewsId(index: number, news: { id: string }): string {
     return news.id;
   }
-  
 }
-
