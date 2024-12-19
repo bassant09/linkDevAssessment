@@ -5,3 +5,30 @@
 
    
 }
+
+@media screen and (max-width: 992px) {
+    .things-we-do__item {
+        svg {
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+@media screen and (max-width: 672px) {
+    .things-we-do__item {
+        svg {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .things-we-do__item {
+        svg {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
