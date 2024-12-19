@@ -15,7 +15,7 @@ export class LatestNewsService {
   getLatestNews(): Observable<NewsResponse> {
     return this.http.get<NewsResponse>(this.apiUrl+'/d275425a434e02acf2f7');  
   }
-  getCategorys(): Observable<CategorysResponse> {
+  getCategories(): Observable<CategorysResponse> {
     return this.http.get<CategorysResponse>(this.apiUrl+'/91298d970c27e9a06518');  
   }
 }

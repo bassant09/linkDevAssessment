@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { EventEmitter } from 'node:stream';
+import { Component,  Input} from '@angular/core';
+import { ThemeService } from '../../../../../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-theming-color',
@@ -11,9 +11,9 @@ import { EventEmitter } from 'node:stream';
 })
 export class ThemingColorComponent {
 @Input() themeColor:string='F215B6'
-getThemeColor(): string {
-  const root = document.documentElement;  // Get the root element (html)
-  
-  return getComputedStyle(root).getPropertyValue('--theme-color').trim();
+constructor(private _themeService:ThemeService) {}
+
+getThemeColor(): string |null{
+  return this._themeService.getThemeColor()
 }
 }

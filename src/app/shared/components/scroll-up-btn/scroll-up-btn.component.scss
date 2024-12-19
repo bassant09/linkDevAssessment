@@ -1,0 +1,16 @@
+.btn-scroll{
+    width:4.25rem ;
+    height: 4.25rem;
+    border-radius: 50%;
+    background-color:  #42B9FF !important;
+    ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 3%;
+    bottom: 6%;
+    z-index: 100;
+    outline: none !important;
+    border: none !important
+}

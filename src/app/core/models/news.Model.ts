@@ -1,6 +1,7 @@
 export interface News {
     id: string;
     categoryID: string;
+    categoryName?:string
     title: string;
     description?: string;
     publishedDate: string;

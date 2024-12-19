@@ -1,0 +1,12 @@
+@import '../../../../styles/typography';
+@import '../../../../styles/colors';
+
+img{
+    
+    height: 300px;
+}
+.no-news-message{
+    font-size: $font-size-lg;
+    
+    color: var(--theme-color);
+}
