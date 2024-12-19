@@ -1,7 +1,7 @@
 <div class="banner position-relative ">
     <app-top-nav-decoration class="banner__nav-decoration"></app-top-nav-decoration>
-    <div class="banner__body container">
-      <div class="banner__content p-5">
+    <div class="banner__body flex-column-reverse flex-lg-row container">
+      <div class="banner__content p-2 p-lg-3 p-xxl-5">
         <div class="banner__badge py-3">
             <p >{{selectedSlide?.category}}</p>
 
@@ -15,10 +15,12 @@
        <div class="banner_cta">
                <app-custom-button [btnTitle]="'Find out more'" (ButtonClickedEvent)="redirectToUrl(selectedSlide?.itemUrl!)"></app-custom-button>
                <div class="banner_cta_demo">
-                 <button class="play-btn" aria-label="Play Demo">
-                    <i class="bi bi-play-fill p-0 m-0" style="color: #fff; font-size: 1.3rem;"></i>
-                 </button>
-                 <span class="play-text">Play Demo</span>
+                <div>
+                  <button class="play-btn" aria-label="Play Demo">
+                     <i class="bi bi-play-fill p-0 m-0" style="color: #fff; font-size: 1.3rem;"></i>
+                  </button>
+                </div>
+                <span class="play-text">Play Demo</span>
                 
                </div>
        </div>

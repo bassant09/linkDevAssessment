@@ -42,7 +42,7 @@ export class LatestNewsComponent {
     this.fetchData();
   }
 
-  fetchData() {
+ fetchData() {
     this.isLoading = true;
     this.isError = false;
     forkJoin([this.fetchCategories(), this.fetchLatestNews()]).subscribe({

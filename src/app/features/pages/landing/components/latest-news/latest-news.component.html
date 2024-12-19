@@ -1,5 +1,7 @@
+
 <div class="position-relative">
-    <div class="container p-5">
+
+    <div class="container p-4 py-5 p-lg-5">
         <!-- Decorative Image -->
         <img src="assets/images/Decore (2).svg" alt="Decorative graphic element" class="decorative-image">
 
@@ -10,7 +12,7 @@
         <div class="row">
             <!-- Display News Cards -->
             <ng-container *ngIf="!isLoading && !isError && displayedNews.length > 0; else handleStates">
-                <div *ngFor="let news of displayedNews; trackBy: trackByNewsId" class="col-4 pb-5">
+                <div *ngFor="let news of displayedNews; trackBy: trackByNewsId" class="col-12 col-md-6 col-lg-4 pb-5">
                     <app-news-card-component [newsItem]="news"></app-news-card-component>
                 </div>
                 <div *ngIf="!showAll" class="d-flex justify-content-center align-items-center">
@@ -30,4 +32,5 @@
 
 
     </div>
+</div>
 </div>
