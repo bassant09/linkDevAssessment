@@ -78,8 +78,7 @@ export class LatestNewsComponent {
             (cat) => parseInt(cat.id) === parseInt(news.categoryID)
           );
           return { ...news, categoryName: category?.name || 'Unknown' };
-        });
-
+        }).sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());
         this.displayedNews = this.allNews.slice(0, 6);
         //console.log('News fetched successfully:', this.allNews);
       })
