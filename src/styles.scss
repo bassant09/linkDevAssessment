@@ -1,7 +1,9 @@
 @import '../src/styles/colors.scss';
 @import '../src/styles/global-styles.scss';
 @import '../src/styles/typography';
-
+:root {
+      --theme-color:#{$secondary-color};
+}
 body{
       font-family: "Poppins", sans-serif;
       background-color: $white-color;

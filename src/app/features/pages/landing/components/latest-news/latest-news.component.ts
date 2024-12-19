@@ -8,11 +8,14 @@ import { News, NewsResponse } from '../../../../../core/models/news.Model';
 import { HttpClientModule } from '@angular/common/http';
 import { log } from 'node:console';
 import { Category } from '../../../../../core/models/Category.Model';
+import { EmptyStateComponent } from '../../../../../shared/states/empty-state/empty-state.component';
+import { ErrorStateComponent } from '../../../../../shared/states/error-state/error-state.component';
+import { LoadingStateComponent } from '../../../../../shared/states/loading-state/loading-state.component';
 
 @Component({
   selector: 'app-latest-news',
   standalone: true,
-  imports: [CommonModule, NewsCardComponentComponent, NewsHeaderComponent, CustomButtonComponent],
+  imports: [CommonModule, NewsCardComponentComponent, NewsHeaderComponent, CustomButtonComponent,EmptyStateComponent,ErrorStateComponent,LoadingStateComponent],
   templateUrl: './latest-news.component.html',
   styleUrl: './latest-news.component.scss'
 })
@@ -20,8 +23,9 @@ export class LatestNewsComponent {
   constructor(private _newsService: LatestNewsService) { }
   news: News[] = [];
   isError: boolean = false;
-  isLoading: boolean = false;
-  allNews: News[] = [];
+  IsNewsLoading: boolean = false;
+  IsCategoriesLoading: boolean = false;
+    allNews: News[] = [];
   displayedNews: News[] = [];
   categoryData:Category[]=[]
   showAll: boolean = false
@@ -29,42 +33,44 @@ export class LatestNewsComponent {
     this.fetchLatestNews();
     this.fetchCategorys()
   }
-
+  get isLoading(): boolean {
+    return this.IsNewsLoading || this.IsCategoriesLoading;
+  }
   fetchLatestNews() {
     if (this.isLoading) return;
     this.isError = false;
-    this.isLoading = true;
+    this.IsNewsLoading = true;
     this._newsService.getLatestNews().subscribe({
       next: (data) => {
-        this.isLoading = false;
+        this.IsNewsLoading = false;
         this.allNews = data?.News.filter(
           (item) => item.showOnHomepage === 'yes'
         );
-        debugger
+        
         this.displayedNews = this.allNews.slice(0, 6);
         console.log('News data fetched successfully:', this.allNews);
       },
       error: (error) => {
-        this.isLoading = false;
         this.isError = true;
+        this.IsNewsLoading = false;
       },
     });
   }
   fetchCategorys() {
-    if (this.isLoading) return;
+    this.IsCategoriesLoading = true;
     this.isError = false;
-    this.isLoading = true;
     this._newsService.getCategorys().subscribe({
       next: (data) => {
-        this.isLoading = false;
         const allNewsCategory = { id: '0', name: 'All News' };
 
       this.categoryData=[allNewsCategory, ...data?.newsCategory];
+      this.IsCategoriesLoading = false;
+
         console.log('News data fetched successfully:', this.categoryData);
       },
       error: (error) => {
-        this.isLoading = false;
         this.isError = true;
+        this.IsCategoriesLoading = false;
       },
     });
   }
@@ -76,6 +82,12 @@ export class LatestNewsComponent {
   filterByCategory(id:string){
     if(id=='0'){ this.displayedNews = this.allNews; return}
         this.displayedNews=this.allNews.filter(item=>  item.categoryID==id)
+        console.log(this.displayedNews);
+        
   }
+  trackByNewsId(index: number, news: { id: string }): string {
+    return news.id;
+  }
+  
 }
 

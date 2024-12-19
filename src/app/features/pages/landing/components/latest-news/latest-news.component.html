@@ -1,26 +1,37 @@
 <div class="position-relative">
-    <div class="container p-5">
-        <img src="assets/images/Decore (2).svg" alt="Decorative graphic element" class="decorative-image">
-        <app-news-header [categoryData]="categoryData" (filterClickEvent)="filterByCategory($event)"></app-news-header>
-        <div class="row ">
-            @for (new of displayedNews; track new.id) {
-                <div class="col-4 pb-5">
-                    <app-news-card-component [newsItem]="new"></app-news-card-component>
-        
-                </div>
-            }
-            @empty { @if (!isLoading&& !isError) {
-            }
-        }
-        @if(!showAll){
-            <div class="d-flex justify-content-center align-items-center">
-                <app-custom-button (ButtonClickedEvent)="showAllNews()"></app-custom-button>
+  <div class="container p-5">
+    <!-- Decorative Image -->
+    <img src="assets/images/Decore (2).svg" alt="Decorative graphic element" class="decorative-image">
     
-            </div>
-        }
-            
+    <!-- News Header -->
+    <app-news-header [categoryData]="categoryData" (filterClickEvent)="filterByCategory($event)"></app-news-header>
     
+    <!-- News List -->
+    <div class="row">
+      <!-- Display News Cards -->
+      <ng-container *ngIf="!isLoading && !isError && displayedNews.length > 0; else handleStates">
+        <div *ngFor="let news of displayedNews; trackBy: trackByNewsId " class="col-4 pb-5">
+          <app-news-card-component [newsItem]="news"></app-news-card-component>
         </div>
+        <div *ngIf=" !showAll" class="d-flex justify-content-center align-items-center">
+            <app-custom-button (ButtonClickedEvent)="showAllNews()"></app-custom-button>
+          </div>
+      </ng-container>
+      
+      <!-- Other States -->
+      <ng-template #handleStates>
+          <!-- Loading State -->
+          <app-loading-state *ngIf="!isError&&isLoading"></app-loading-state>
+        <!-- Empty State -->
+        <app-empty-state *ngIf="!isLoading && !isError && displayedNews.length === 0"></app-empty-state>
+
+        <!-- Error State -->
+        <app-error-state *ngIf="isError && !isLoading"></app-error-state>
+
+      
+      </ng-template>
     </div>
+
    
+  </div>
 </div>
