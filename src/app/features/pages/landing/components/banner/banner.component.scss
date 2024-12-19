@@ -26,8 +26,8 @@
   z-index: -1;
 }
 .banner__img {
-  height: 621px;
-  width: 462px;
+  height: 38.813rem;
+  width: 28.875rem;
   object-fit: contain;
 }
 .banner__description {
@@ -50,8 +50,8 @@ p {
 }
 .play-btn {
   background-color: #42b9ff;
-  height: 52px;
-  width: 52px;
+  height: 3.25rem;
+  width: 3.25rem;
   outline: none;
   border: none;
   border-radius: 50%;
@@ -80,7 +80,7 @@ p {
 }
 .banner__nav-decoration {
   position: absolute;
-  top: -12%;
+  top: -17%;
   right: 0;
   z-index: -1;
   pointer-events: none;
@@ -94,14 +94,30 @@ p {
   border-radius: 50%;
   background-color: #000;
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .banner__img {
-    height: 450px;
-    width: auto;
+   display: none;
+  }
+  .banner__nav-decoration{
+    top: -17%;
   }
   .banner__title {
     height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner__img {
+   display: none;
+  }
+  .banner__nav-decoration{
+    top: -17%;
+  }
+  .banner__title {
+    height: auto;
+  }
+  .banner__title{
+    font-size: 3.5rem;
   }
 }
 

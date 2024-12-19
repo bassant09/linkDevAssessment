@@ -11,3 +11,9 @@ color: #fff;
 box-shadow: 0px 20px 35px 0px #F1A50126;
 
 }
+
+@media screen and (max-width: 768px) {
+    .custom-button{
+        width:10rem ;
+    }
+}

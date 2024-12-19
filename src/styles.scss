@@ -6,3 +6,30 @@ body{
       font-family: "Poppins", sans-serif;
       background-color: $white-color;
 }
+html {
+  font-size: 16px; /* Default base font size for large screens (16px = 1rem) */
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px; /* 1rem will be 15px on medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 14px; /* 1rem will be 14px on small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px; /* 1rem will be 13px on very small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 12px; /* 1rem will be 12px on extra small screens */
+  }
+}
