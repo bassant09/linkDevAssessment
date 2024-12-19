@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BannerSlidesService {
-private apiUrl = `${environment.apiUrl}`;
+  private apiUrl = `${environment.apiUrl}`;
 
-  constructor(private http: HttpClient) {}
-   getSlidesBanner(): Observable<SlideBannerResponse> {
-      return this.http.get<SlideBannerResponse>(this.apiUrl+'/fee177346e7875554413');  
-    }
+  constructor(private http: HttpClient) { }
+  getSlidesBanner(): Observable<SlideBannerResponse> {
+    return this.http.get<SlideBannerResponse>(this.apiUrl + '/fee177346e7875554413');
+  }
 }

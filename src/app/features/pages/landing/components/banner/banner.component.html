@@ -1,49 +1,54 @@
 <div class="banner position-relative ">
-    <app-top-nav-decoration class="banner__nav-decoration"></app-top-nav-decoration>
-    <div class="banner__body flex-column-reverse flex-lg-row container">
-      <div class="banner__content p-2 p-lg-3 p-xxl-5">
-        <div class="banner__badge py-3">
-            <p >{{selectedSlide?.category}}</p>
+  <!-- Banner Navbar Decoration -->
+  <app-top-nav-decoration class="banner__nav-decoration"></app-top-nav-decoration>
+  <!-- Banner Body -->
+  <div class="banner__body flex-column-reverse flex-lg-row container">
+    <!-- Banner Main Content -->
+    <div class="banner__content p-2 p-lg-3 p-xxl-5">
+      <div class="banner__badge py-3">
+        <p>{{selectedSlide?.category}}</p>
+
+      </div>
+      <h1 class="banner__title header-main position-relative z-3 ">{{selectedSlide?.title}}
+        <app-header-decoration class="banner__header-decoration"></app-header-decoration>
+
+      </h1>
+
+      <p class="banner__description">{{selectedSlide?.brief}}</p>
+      <div class="banner_cta">
+        <app-custom-button [btnTitle]="'Find out more'"
+          (ButtonClickedEvent)="redirectToUrl(selectedSlide?.itemUrl!)"></app-custom-button>
+        <div class="banner_cta_demo">
+          <div>
+            <button class="play-btn" aria-label="Play Demo" (click)="redirectToUrl(selectedSlide?.videoUrl!)">
+              <i class="bi bi-play-fill p-0 m-0" style="color: #fff; font-size: 1.3rem;"></i>
+            </button>
+          </div>
+          <span class="play-text">Play Demo</span>
 
         </div>
-        <h1 class="banner__title header-main position-relative z-3 ">{{selectedSlide?.title}}
-            <app-header-decoration   class="banner__header-decoration"></app-header-decoration>
+      </div>
+      <div class="banner_themes">
+        @for (item of slidesData; track item.id; ) {
 
-        </h1>
-            
-        <p class="banner__description">{{selectedSlide?.brief}}</p>
-       <div class="banner_cta">
-               <app-custom-button [btnTitle]="'Find out more'" (ButtonClickedEvent)="redirectToUrl(selectedSlide?.itemUrl!)"></app-custom-button>
-               <div class="banner_cta_demo">
-                <div>
-                  <button class="play-btn" aria-label="Play Demo">
-                     <i class="bi bi-play-fill p-0 m-0" style="color: #fff; font-size: 1.3rem;"></i>
-                  </button>
-                </div>
-                <span class="play-text">Play Demo</span>
-                
-               </div>
-       </div>
-        <div class="banner_themes">
-            @for (item of slidesData; track item.id; ) {
+        <app-theming-color [themeColor]="item.colorCode" (click)="selectedTheme(item)"></app-theming-color>
+        <!-- dotted line -->
+        @if ($index!=slidesData.length-1) {
+        @for (item of [1,2,3,4,5,6]; track $index){
+        <div class="dotted-line">
 
-            <app-theming-color [themeColor]="item.colorCode" (click)="selectedTheme(item)"></app-theming-color>
-            <!-- dotted line -->
-             @if ($index!=slidesData.length-1) {
-            @for (item of [1,2,3,4,5,6]; track $index){
-                <div class="dotted-line" >
-
-                </div>
-            }
+        </div>
         }
-            }
-        </div>
-       
-      
+        }
+        }
       </div>
-      <div class="banner__image">
-        <img src="assets/images/person.png" alt="Banner Image" class="banner__img"  />
-      </div>
+
+
+    </div>
+    <!-- Banner Image -->
+
+    <div class="banner__image">
+      <img [src]=" selectedSlide?.imgUrl  || 'assets/images/person.png'" alt="Banner Image" class="banner__img" />
     </div>
   </div>
-  
+</div>

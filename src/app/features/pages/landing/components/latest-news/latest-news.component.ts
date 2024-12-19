@@ -29,7 +29,7 @@ import { catchError, forkJoin, switchMap, tap } from 'rxjs';
   styleUrl: './latest-news.component.scss',
 })
 export class LatestNewsComponent {
-  constructor(private _newsService: LatestNewsService) {}
+  constructor(private _newsService: LatestNewsService) { }
   news: News[] = [];
   isLoading: boolean = false;
   isError: boolean = false;
@@ -42,7 +42,7 @@ export class LatestNewsComponent {
     this.fetchData();
   }
 
- fetchData() {
+  fetchData() {
     this.isLoading = true;
     this.isError = false;
     forkJoin([this.fetchCategories(), this.fetchLatestNews()]).subscribe({
@@ -63,7 +63,7 @@ export class LatestNewsComponent {
 
         this.categoryData = [allNewsCategory, ...data?.newsCategory];
 
-        console.log('Categories fetched successfully:', this.categoryData);
+        //console.log('Categories fetched successfully:', this.categoryData);
       })
     );
   }
@@ -81,7 +81,7 @@ export class LatestNewsComponent {
         });
 
         this.displayedNews = this.allNews.slice(0, 6);
-        console.log('News fetched successfully:', this.allNews);
+        //console.log('News fetched successfully:', this.allNews);
       })
     );
   }

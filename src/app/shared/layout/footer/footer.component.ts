@@ -9,12 +9,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule,FooterItemComponent,SocialMediaBadgeComponent],
+  imports: [CommonModule, FooterItemComponent, SocialMediaBadgeComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  constructor( private sanitizer: DomSanitizer){}
+  constructor(private sanitizer: DomSanitizer) { }
   footerItems: FooterItem[] = [
     {
       title: 'Company',
@@ -53,6 +53,6 @@ export class FooterComponent {
 `),
       link: 'https://www.another-example.com'
     }
-    
+
   ];
 }

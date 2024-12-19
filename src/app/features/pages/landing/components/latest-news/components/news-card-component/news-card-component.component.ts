@@ -10,5 +10,8 @@ import { DatePipe } from '@angular/common';
   styleUrl: './news-card-component.component.scss'
 })
 export class NewsCardComponentComponent {
-@Input() newsItem!:News
+  @Input() newsItem!: News
+  onImageError(event: any): void {
+    event.target.src = 'assets/images/News-Placeholder.png';
+  }
 }

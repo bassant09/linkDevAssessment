@@ -19,10 +19,10 @@ import { ThemeService } from '../../../../../core/services/theme/theme.service';
 export class BannerComponent {
   isError: boolean = false;
   isLoading: boolean = false;
-  slidesData:BannerSlide[]=[]
-  selectedSlide!: BannerSlide 
-  constructor(private _bannerSlides:BannerSlidesService,private _themeService:ThemeService){}
-  ngOnInit(){
+  slidesData: BannerSlide[] = []
+  selectedSlide!: BannerSlide
+  constructor(private _bannerSlides: BannerSlidesService, private _themeService: ThemeService) { }
+  ngOnInit() {
     this.fetchBannerSlides()
   }
   fetchBannerSlides() {
@@ -32,13 +32,13 @@ export class BannerComponent {
     this._bannerSlides.getSlidesBanner().subscribe({
       next: (data) => {
         this.isLoading = false;
-        this.slidesData=data.slides
+        this.slidesData = data.slides
         console.log(this.slidesData);
-        
+
         if (this.slidesData && this.slidesData.length > 0) {
           this.selectedTheme(this.slidesData[1]);
         }
-        
+
       },
       error: (error) => {
         this.isLoading = false;
@@ -49,8 +49,7 @@ export class BannerComponent {
   selectedTheme(slide: BannerSlide): void {
     this.selectedSlide = slide;
     this._themeService.setThemeColor(slide.colorCode)
-      //document.documentElement.style.setProperty('--theme-color', `#${slide.colorCode}`);
-      this.animateSlide()
+    this.animateSlide()
     console.log('Selected Slide:', slide);
   }
   redirectToUrl(url: string): void {
@@ -58,31 +57,31 @@ export class BannerComponent {
       window.open(url, '_blank');
     }
   }
-  animateSlide(){
+  animateSlide() {
     gsap.from('.banner__title', {
       duration: 0.4,
       x: 30,
-      y:30,
+      y: 30,
       onComplete: () => {
-        gsap.set('.banner__title', { x: 0,y:0 });
+        gsap.set('.banner__title', { x: 0, y: 0 });
       }
     });
     gsap.from('.banner__img', {
       duration: 0.4,
       x: -50,
-      y:50,
+      y: 50,
       onComplete: () => {
-        gsap.set('.banner__img', { x: 0,y:0 });
+        gsap.set('.banner__img', { x: 0, y: 0 });
       }
     });
     gsap.from('.banner__nav-decoration', {
       duration: 0.4,
       x: -30,
-      y:30,
+      y: 30,
       onComplete: () => {
-        gsap.set('.banner__nav-decoration', { x: 0,y:0 });
+        gsap.set('.banner__nav-decoration', { x: 0, y: 0 });
       }
     });
   }
-  
+
 }

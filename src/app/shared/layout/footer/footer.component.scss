@@ -6,10 +6,12 @@
   display: flex;
   justify-content: space-between;
 }
+
 .footer__description {
   max-width: 307px;
   font-size: $font-size-sm;
 }
+
 .footer__column {
   flex: 1;
   min-width: 180px;
@@ -22,11 +24,13 @@
 p {
   color: $dark-gray-color;
 }
+
 .footer__app-downloads {
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
+
   h3 {
     font-size: $font-size-lg;
     color: $dark-gray-color;

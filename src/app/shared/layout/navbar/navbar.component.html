@@ -1,45 +1,48 @@
-<div class="w-100 navbar__body container  ">
-    <img src="assets/images/Logo.png" alt="Logo" class="navbar__logo me-auto">
-  
-    <div class="d-none d-lg-flex justify-content-center ms-5">
-      <div class="navbar__items">
-        <a href="#" class="navbar__item">Home</a>
-        <a href="#" class="navbar__item">About</a>
-        <a href="#" class="navbar__item">Contact</a>
-        <a href="#" class="navbar__item">More</a>
-      </div>
+<nav class="w-100 navbar__body container  ">
+  <img src="assets/images/Logo.png" alt="Logo" class="navbar__logo me-auto">
+
+  <div class="d-none d-lg-flex justify-content-center ms-5">
+    <div class="navbar__items">
+      <a href="#" class="navbar__item">Home</a>
+      <a href="#" class="navbar__item">About</a>
+      <a href="#" class="navbar__item">Contact</a>
+      <a href="#" class="navbar__item">More</a>
     </div>
-  
-    <div class="navbar__actions ms-auto d-none d-lg-flex align-items-center">
+  </div>
+
+  <div class="navbar__actions ms-auto d-none d-lg-flex align-items-center">
+    <a class="navbar__item">Login</a>
+    <button class="btn">Sign Up</button>
+    <a class="navbar__item">En</a>
+  </div>
+
+  <button class="d-flex d-lg-none btn btn-primary text-dark navbar__burger-btn" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+    </svg>
+  </button>
+</nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <img src="assets/images/Logo.png" alt="Logo" class="navbar__logo me-auto">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="navbar__offcanvas-items">
+      <a href="#" class="navbar__item">Home</a>
+      <a href="#" class="navbar__item">About</a>
+      <a href="#" class="navbar__item">Contact</a>
+      <a href="#" class="navbar__item">More</a>
+    </div>
+    <hr />
+    <div class="navbar__actions">
       <a class="navbar__item">Login</a>
       <button class="btn">Sign Up</button>
       <a class="navbar__item">En</a>
     </div>
-    
-    <button class="d-flex d-lg-none btn btn-primary text-dark navbar__burger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-      </svg>
-    </button>
   </div>
-  
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <img src="assets/images/Logo.png" alt="Logo" class="navbar__logo me-auto">
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="navbar__offcanvas-items">
-        <a href="#" class="navbar__item">Home</a>
-        <a href="#" class="navbar__item">About</a>
-        <a href="#" class="navbar__item">Contact</a>
-        <a href="#" class="navbar__item">More</a>
-      </div>
-      <hr/>
-      <div class="navbar__actions">
-        <a class="navbar__item">Login</a>
-        <button class="btn">Sign Up</button>
-        <a class="navbar__item">En</a>
-      </div>
-    </div>
-  </div>
+</div>

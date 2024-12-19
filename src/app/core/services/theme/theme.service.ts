@@ -6,7 +6,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 })
 export class ThemeService {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
   setThemeColor(color: string): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -18,6 +18,6 @@ export class ThemeService {
     if (isPlatformBrowser(this.platformId)) {
       return getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim();
     }
-    return '#F215B6'; 
+    return '#F215B6';
   }
 }

@@ -1,4 +1,5 @@
 @import "../../../../../../styles/global-styles";
+
 .things-we-do {
   background-color: #efefef;
   width: 100%;
@@ -6,6 +7,7 @@
   padding-bottom: 6.875rem;
   position: relative;
 }
+
 .things-we-do__header-container {
   display: flex;
   justify-content: end;
@@ -15,6 +17,7 @@
   padding-bottom: 5.063rem;
   max-width: 950px;
 }
+
 .things-we-do__title {
   font-family: "Poppins", sans-serif !important;
   font-size: 3.438rem;
@@ -32,12 +35,14 @@
   margin-top: 2.5rem;
   text-align: end;
 }
+
 .things-we-do__header {
   display: flex;
   justify-content: center;
   align-items: end;
   flex-direction: column;
 }
+
 .things-we-do__items {
   position: absolute;
   top: 0;
@@ -49,11 +54,13 @@
   left: 0;
   top: 7%;
 }
-.things-we-do__body{
+
+.things-we-do__body {
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
 }
+
 @media screen and (max-width: 1405px) {
 
   .things-we-do {
@@ -69,59 +76,67 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .things-we-do__image{
+  .things-we-do__image {
     display: none;
   }
-  .things-we-do__header-container{
+
+  .things-we-do__header-container {
     max-width: 100% !important;
   }
+
   .things-we-do__items {
     position: absolute;
     top: 500px;
     right: unset;
-    
+
   }
 }
 
 @media screen and (max-width: 1200px) {
- 
+
   .things-we-do__items {
     position: absolute;
     top: 500px;
     right: unset;
-    
+
   }
 }
+
 @media screen and (max-width: 977px) {
-    .things-we-do__header-container {
-        max-width: auto;
-      }
-      .things-we-do{
-        height: auto;
-      }
-      .things-we-do__items {
-       display: none;
-      }
-      .things-we-do__body{
-            justify-content:center;
-      }
-      .things-we-do__image{
-        display: none;
-      }
-      .things-we-do__header-container {
-        padding-bottom: 0px;
-      }
-      .things-we-do__header{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .things-we-do__items {
-        position: absolute;
-        top: 600px;
-        right: unset;
-        left: -20%;
-      }
+  .things-we-do__header-container {
+    max-width: auto;
+  }
+
+  .things-we-do {
+    height: auto;
+  }
+
+  .things-we-do__items {
+    display: none;
+  }
+
+  .things-we-do__body {
+    justify-content: center;
+  }
+
+  .things-we-do__image {
+    display: none;
+  }
+
+  .things-we-do__header-container {
+    padding-bottom: 0px;
+  }
+
+  .things-we-do__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .things-we-do__items {
+    position: absolute;
+    top: 600px;
+    right: unset;
+    left: -20%;
+  }
 }
-
-

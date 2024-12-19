@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './things-we-do-items.component.scss'
 })
 export class ThingsWeDoItemsComponent {
-
+  ThingsWeDoImagesName: string[] = [
+    'CarftyMind.png',
+    'Dynamic365.png',
+    'Transformation.png',
+    'Enovision (1).png',
+    'Mask Group 17.png'
+  ];
 }

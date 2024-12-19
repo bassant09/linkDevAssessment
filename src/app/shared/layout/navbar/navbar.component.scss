@@ -1,36 +1,41 @@
 @import '../../../../styles/colors';
+
 .navbar__body {
-    padding-top: 20px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .navbar__items{
-    display: flex;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar__items {
+  display: flex;
   gap: 35px;
-  }
-  .navbar__items--center {
-    flex-grow: 1; 
-    justify-content: center; 
-  }
-  .navbar__item{
-    font-size: 20px;
-    color: $dark-gray-color;
-    text-decoration: none;
-    padding: 0;
-    margin: 0;
-  }
-.btn{
-    border-radius: 6px;
-    width: 120px;
-    height: 40px;
-    background: none;
-    border: 1px solid $dark-gray-color;
+}
+
+.navbar__items--center {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.navbar__item {
+  font-size: 20px;
+  color: $dark-gray-color;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  border-radius: 6px;
+  width: 120px;
+  height: 40px;
+  background: none;
+  border: 1px solid $dark-gray-color;
 }
 
 .navbar__actions {
   display: flex;
-  gap: 35px; 
+  gap: 35px;
   align-items: center;
 }
 
@@ -44,4 +49,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.navbar__logo {
+  cursor: pointer;
 }

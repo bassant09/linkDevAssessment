@@ -9,6 +9,7 @@
   min-height: 100vh;
   position: relative;
 }
+
 .banner__body {
   display: flex;
   justify-content: space-between;
@@ -19,35 +20,42 @@
   background: transparent;
   z-index: 1;
 }
+
 .banner__header-decoration {
   position: absolute;
   right: 15%;
   bottom: -30px;
   z-index: -1;
 }
+
 .banner__img {
   height: 38.813rem;
   width: 28.875rem;
   object-fit: contain;
 }
+
 .banner__description {
   font-size: $font-size-lg;
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
+
 p {
   color: $dark-gray-color;
 }
+
 .banner_cta {
   display: flex;
   align-items: center;
   gap: 44px;
 }
+
 .banner_cta_demo {
   display: flex;
   align-items: center;
   gap: 1.313rem;
 }
+
 .play-btn {
   background-color: #42b9ff;
   height: 3.25rem;
@@ -60,16 +68,19 @@ p {
   align-items: center;
   box-shadow: 0px 15px 30px 0px #df69514d;
 }
+
 .play-text {
   color: $light-gray-color;
   font-size: $font-size-base;
 }
+
 .banner_themes {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   margin-top: 2.563rem;
 }
+
 .banner__badge {
   p {
     font-size: $font-size-lg;
@@ -78,6 +89,7 @@ p {
     text-transform: uppercase;
   }
 }
+
 .banner__nav-decoration {
   position: absolute;
   top: -17%;
@@ -85,22 +97,27 @@ p {
   z-index: -1;
   pointer-events: none;
 }
+
 .banner__title {
   height: 180px;
 }
+
 .dotted-line {
   width: 3px;
   height: 3px;
   border-radius: 50%;
   background-color: #000;
 }
+
 @media screen and (max-width: 1000px) {
   .banner__img {
-   display: none;
+    display: none;
   }
-  .banner__nav-decoration{
+
+  .banner__nav-decoration {
     top: -17%;
   }
+
   .banner__title {
     height: auto;
   }
@@ -108,15 +125,18 @@ p {
 
 @media screen and (max-width: 768px) {
   .banner__img {
-   display: none;
+    display: none;
   }
-  .banner__nav-decoration{
-    top: -17%;
+
+  .banner__nav-decoration {
+    top: -19%;
   }
+
   .banner__title {
     height: auto;
   }
-  .banner__title{
+
+  .banner__title {
     font-size: 3.5rem;
   }
 }

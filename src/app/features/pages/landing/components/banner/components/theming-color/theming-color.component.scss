@@ -1,12 +1,13 @@
-.theme_color{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    box-shadow: 0px 4px 4px 0px #00000040;
-    cursor: pointer;
-    &.selected {
-        transform: scale(1.5); 
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
-        border: 2px solid #FF7C16; 
-      }
+.theme_color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  cursor: pointer;
+
+  &.selected {
+    transform: scale(1.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #FF7C16;
+  }
 }

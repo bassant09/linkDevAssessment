@@ -10,11 +10,11 @@ import { Category } from '../../../../../../../core/models/Category.Model';
   styleUrl: './news-header.component.scss'
 })
 export class NewsHeaderComponent {
-@Input() categoryData:Category[]=[]
-@Output() filterClickEvent=new EventEmitter<string>()
-selectedCategoryId:string='0'
-setSelectedCategory(categoryId:string){
-  this.selectedCategoryId = categoryId;
-  this.filterClickEvent.emit(categoryId)
-}
+  @Input() categoryData: Category[] = []
+  @Output() filterClickEvent = new EventEmitter<string>()
+  selectedCategoryId: string = '0'
+  setSelectedCategory(categoryId: string) {
+    this.selectedCategoryId = categoryId;
+    this.filterClickEvent.emit(categoryId)
+  }
 }
